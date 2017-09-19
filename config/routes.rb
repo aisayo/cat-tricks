@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   root 'application#index'
 
-  devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
-  
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+
   resources :cats
   resources :tricks
   resources :cat_tricks
