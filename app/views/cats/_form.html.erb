@@ -1,0 +1,37 @@
+<%= form_for cat do |f| %>
+
+<div class="field">
+  <%= f.label :name, 'Name:' %>
+  <%= f.text_field :name %>
+</div>
+
+<br>
+
+<div class="field">
+  <%= f.label :color, 'Color:' %>
+  <%= f.text_field :color %>
+</div>
+
+<br>
+
+<div class="field">
+  Select Tricks:<br>
+  <%= f.collection_check_boxes :trick_ids, Trick.all, :id, :name %>
+</div>
+
+<br>
+
+<div class="field">
+  Add a Trick:<br>
+  <%= f.fields_for :tricks, cat.tricks.build do |trick_fields| %>
+    <%= trick_fields.text_field :name %>
+  <% end %>
+</div>
+
+<br>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+<% end %>
