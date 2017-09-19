@@ -1,0 +1,2 @@
+class CatTrick < ApplicationRecord
+end
