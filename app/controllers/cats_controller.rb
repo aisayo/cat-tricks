@@ -24,7 +24,6 @@ class CatsController < ApplicationController
 
   private
     def cat_params
-      #params.require(:cat).permit!
       params.require(:cat).permit(:name, :color, trick_ids:[], tricks_attributes: [:name])
     end
 
