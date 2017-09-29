@@ -4,8 +4,12 @@
 
 <h5>Tricks</h5>
 
-<ul>
-  <% @cat.tricks.each do |trick| %>
-    <li><%= trick.name %></li>
-  <% end %>
-</ul>
+<% if @cat.tricks.count > 1 %>
+  <ul>
+    <% @cat.tricks.each do |trick| %>
+      <li><%= trick.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  Your cat doesn't know anything yet!
+<% end %>
