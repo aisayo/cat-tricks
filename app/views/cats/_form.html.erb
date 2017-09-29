@@ -15,14 +15,14 @@
 <br>
 
 <div class="field">
-  Select Tricks:<br>
+  Select Trick(s):<br>
   <%= f.collection_check_boxes :trick_ids, Trick.all, :id, :name %>
 </div>
 
 <br>
 
 <div class="field">
-  Add a Trick:<br>
+  Add a New Trick:<br>
   <%= f.fields_for :tricks, cat.tricks.build do |trick_fields| %>
     <%= trick_fields.text_field :name %>
   <% end %>

@@ -1,15 +1,21 @@
 <div>
-  Welcome <%= current_user.email %>
+  Hi, <%= current_user.email %>!
 </div>
 
+<br /><br />
+
+<p>Your Cats</p>
+
 <div>
-  <% if current_user.cats.count > 1 %>
-    <% current_user.cats each do |cat| %>
-      <%= cat.name %>
+  <ul>
+    <% if current_user.cats.count > 1 %>
+      <% current_user.cats.each do |cat| %>
+        <li><%= link_to cat.name, cat_path(cat) %></li>
+      <% end %>
+    <% else %>
+      You have no cats yet.
     <% end %>
-  <% else %>
-    You have no cats yet.
-  <% end %>
+  </ul>
 </div>
 
 <%= link_to "Add a Cat", new_cat_path %>

@@ -287,15 +287,17 @@
    outline: 0; }
  label,
  legend {
-   display: block;
+   display: inline;
    margin-bottom: .5rem;
+   margin-right: 2rem;
    font-weight: 600; }
  fieldset {
    padding: 0;
    border-width: 0; }
  input[type="checkbox"],
  input[type="radio"] {
-   display: inline; }
+   display: inline;
+   margin-right: .5rem;}
  label > .label-body {
    display: inline-block;
    margin-left: .5rem;

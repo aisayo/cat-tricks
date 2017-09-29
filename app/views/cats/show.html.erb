@@ -1,0 +1,7 @@
+<%= render partial: 'cat', locals: {cat: @cat} %>
+
+<p>
+  <% if current_user == @cat.user %>
+     <%= link_to "Edit Cat's Details", edit_cat_path(@cat) %>
+  <% end %>
+</p>

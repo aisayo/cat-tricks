@@ -1,0 +1,11 @@
+<h2><%= @cat.name %></h2>
+
+<p>Color: <%= @cat.color %></p>
+
+<h5>Tricks</h5>
+
+<ul>
+  <% @cat.tricks.each do |trick| %>
+    <li><%= trick.name %></li>
+  <% end %>
+</ul>
