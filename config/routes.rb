@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
+  get '/cats/most_talented', to: 'cats#index'
+
   resources :cats
   resources :tricks
   resources :cat_tricks

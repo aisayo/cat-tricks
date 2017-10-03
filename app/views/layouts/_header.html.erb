@@ -5,6 +5,6 @@
     <%= link_to "Sign In", new_user_session_path %>
   <% else %>
     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> &#124;
-    <%= link_to "Cat Rankings", cats_path %>
+    <%= link_to "Cat Rankings", cats_most_talented_path %>
   <% end %>
 </nav>
