@@ -13,9 +13,9 @@ Specs:
 - [x] Include login (Devise)
 - [x] Include logout (Devise)
 - [x] Include third party signup/login (OmniAuth Facebook)
-- [x] Include nested resource show or index
-- [x] Include nested resource "new" form
-- [x] Include form display of validation errors (Name fields_with_errors on Add a Cat)
+- [x] Include nested resource show or index (Comments on cat page)
+- [x] Include nested resource "new" form (Add a Comment)
+- [x] Include form display of validation errors (Name fields_with_errors on Add a Cat, Comment field on Comments)
 
 Confirm:
 - [x] The application is pretty DRY
