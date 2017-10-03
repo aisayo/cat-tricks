@@ -4,6 +4,8 @@
 <p>
   <% if current_user == @cat.user %>
      <%= link_to "Edit Cat's Details", edit_cat_path(@cat) %>
+     <br /><br />
+     <%= link_to "Delete Cat", cat_path(@cat), method: :delete, data: {confirm: "Are you sure?"} %>
   <% end %>
 </p>
 

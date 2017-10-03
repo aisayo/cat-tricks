@@ -1,5 +1,5 @@
 class CatsController < ApplicationController
-  before_action :current_cat, only: [:edit, :show, :update]
+  before_action :current_cat, only: [:edit, :show, :update, :destroy]
 
   def index
     @cats = Cat.most_talented
@@ -32,6 +32,11 @@ class CatsController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    @cat.delete
+    redirect_to root_path, notice: "#{@cat.name} was deleted"
   end
 
   private

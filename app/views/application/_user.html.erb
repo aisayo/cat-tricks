@@ -4,6 +4,12 @@
 
 <br /><br />
 
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %></p>
+  </div>
+<% end %>
+
 <p>Your Cats</p>
 
 <div>
