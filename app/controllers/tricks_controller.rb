@@ -1,13 +1,11 @@
 class TricksController < ApplicationController
-  before_action :current_cat, only: [:new, :show, :update]
+  before_action :current_cat
 
   def new
-    @cat = Cat.find_by_id(params[:cat_id])
     @trick = Trick.new(cat_ids: params[:cat_id])
   end
 
   def index
-    @cat = Cat.find_by_id(params[:cat_id])
     @tricks = @cat.tricks
   end
 

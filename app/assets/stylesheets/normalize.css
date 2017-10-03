@@ -40,7 +40,9 @@ header,
 hgroup,
 main,
 menu,
-nav,
+nav {
+  margin-bottom: 20px;
+  },
 section,
 summary {
   display: block;
