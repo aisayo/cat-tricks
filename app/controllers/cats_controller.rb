@@ -15,6 +15,7 @@ class CatsController < ApplicationController
     if @cat.save
       redirect_to cat_path(@cat)
     else
+      flash[:notice] = "Please name your cat"
       render :new
     end
   end

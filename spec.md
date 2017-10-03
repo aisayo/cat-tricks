@@ -15,7 +15,7 @@ Specs:
 - [x] Include third party signup/login (OmniAuth Facebook)
 - [x] Include nested resource show or index
 - [x] Include nested resource "new" form
-- [ ] Include form display of validation errors
+- [x] Include form display of validation errors (Name fields_with_errors on Add a Cat)
 
 Confirm:
 - [x] The application is pretty DRY

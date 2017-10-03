@@ -303,6 +303,14 @@
    margin-left: .5rem;
    font-weight: normal; }
 
+.field_with_errors input[type="text"] {
+  border: 1px solid red;
+}
+
+.notice {
+  color: red;
+}
+
 
  /* Lists
  –––––––––––––––––––––––––––––––––––––––––––––––––– */
