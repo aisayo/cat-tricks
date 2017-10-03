@@ -2,14 +2,8 @@
 
 <p>Color: <%= @cat.color %></p>
 
-<h5>Tricks</h5>
-
 <% if @cat.tricks.count > 0 %>
-  <ul>
-    <% @cat.tricks.each do |trick| %>
-      <li><%= trick.name %></li>
-    <% end %>
-  </ul>
+  <%= link_to "Tricks", cat_tricks_path(@cat) %>
 <% else %>
   Your cat doesn't know anything yet!
 <% end %>

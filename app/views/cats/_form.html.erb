@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %></p>
+  </div>
+<% end %>
+
 <%= form_for cat do |f| %>
 
 <div class="field">
