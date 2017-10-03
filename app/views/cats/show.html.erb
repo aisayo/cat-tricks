@@ -5,3 +5,11 @@
      <%= link_to "Edit Cat's Details", edit_cat_path(@cat) %>
   <% end %>
 </p>
+
+<hr />
+
+<%= render partial: 'comments/comments' %>
+
+<br /><br />
+
+<%= link_to "Add Comment", new_cat_comment_path(@cat) %>

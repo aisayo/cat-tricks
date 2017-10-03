@@ -1,0 +1,16 @@
+<% #raise params.inspect %>
+<%= form_for([@comment.cat, @comment]) do |f| %>
+  <%= f.hidden_field :cat_id %>
+
+  <div class="field">
+    <%= f.label :body, 'Comment:' %>
+    <%= f.text_field :body %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>

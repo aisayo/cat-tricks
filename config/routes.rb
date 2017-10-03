@@ -9,8 +9,11 @@ Rails.application.routes.draw do
 
   get '/cats/most_talented', to: 'cats#index'
 
-  resources :cats
-  resources :tricks
+  resources :cats do
+    resources :comments
+  end
+
+  #resources :tricks
   #resources :cat_tricks
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
