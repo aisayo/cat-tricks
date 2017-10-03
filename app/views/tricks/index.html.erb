@@ -1,0 +1,13 @@
+<h1><%= @cat.name %>'s Tricks</h1>
+
+<ul>
+  <% @tricks.each do |trick| %>
+    <li><%= trick.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a Trick", new_cat_trick_path(@cat) %>
+
+<br /><br />
+
+<%= link_to "Back to Lil B's profile", cat_path(@cat) %>
