@@ -1,4 +1,9 @@
-<% #raise params.inspect %>
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %></p>
+  </div>
+<% end %>
+
 <%= form_for([@comment.cat, @comment]) do |f| %>
   <%= f.hidden_field :cat_id %>
 

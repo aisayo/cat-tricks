@@ -3,7 +3,11 @@
 <p>Color: <%= @cat.color %></p>
 
 <% if @cat.tricks.count > 0 %>
-  <%= link_to "Tricks", cat_tricks_path(@cat) %>
+  <ul>
+    <% @cat.tricks.each do |trick| %>
+      <li><%= trick.name %></li>
+    <% end %>
+  </ul>
 <% else %>
   Your cat doesn't know anything yet!
 <% end %>
