@@ -1,0 +1,16 @@
+<h1>Cat Rankings</h1>
+
+<p>Power rankings by trick count!</p>
+
+<ol>
+  <% @cats.each do |cat| %>
+    <li>
+      <% if cat.user == current_user %>
+       <%= link_to cat.name, cat_path(cat) %>
+      <% else %>
+        <%= cat.name %>
+      <% end %>
+      &mdash; <%= cat.cat_tricks.count %>
+    </li>
+  <% end %>
+</ol>

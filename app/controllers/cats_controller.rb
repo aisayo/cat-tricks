@@ -1,6 +1,10 @@
 class CatsController < ApplicationController
   before_action :current_cat, only: [:edit, :show]
 
+  def index
+    @cats = Cat.most_talented
+  end
+
   def new
     @cat = Cat.new
   end
@@ -8,7 +12,6 @@ class CatsController < ApplicationController
   def create
     @cat = Cat.new(cat_params)
     @cat.user_id = current_user.id if current_user
-    #raise params.inspect
     if @cat.save
       redirect_to cat_path(@cat)
     else

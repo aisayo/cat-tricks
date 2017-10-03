@@ -12,4 +12,8 @@ class Cat < ApplicationRecord
       end
   end
 
+  def self.most_talented
+    joins(:cat_tricks).group(:cat_id).order("count(*) DESC")
+  end
+
 end
