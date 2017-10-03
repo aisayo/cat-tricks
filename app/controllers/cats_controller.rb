@@ -1,5 +1,5 @@
 class CatsController < ApplicationController
-  before_action :current_cat, only: [:edit, :show]
+  before_action :current_cat, only: [:edit, :show, :update]
 
   def index
     @cats = Cat.most_talented
@@ -16,6 +16,14 @@ class CatsController < ApplicationController
       redirect_to cat_path(@cat)
     else
       render :new
+    end
+  end
+
+  def update
+    if @cat.update (cat_params)
+      redirect_to cat_path(@cat)
+    else
+      render :edit
     end
   end
 
