@@ -6,7 +6,8 @@
 
 <% if flash[:notice] %>
   <div class="notice">
-    <%= flash[:notice] %></p>
+    <%= flash[:notice] %>
+    <%= flash[:notice] = nil %>
   </div>
 <% end %>
 
