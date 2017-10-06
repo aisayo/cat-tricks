@@ -22,6 +22,7 @@ class CatsController < ApplicationController
 
   def update
     if @cat.update (cat_params)
+      #raise params.inspect
       redirect_to cat_path(@cat)
     else
       render :edit
