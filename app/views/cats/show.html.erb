@@ -11,8 +11,14 @@
 
 <hr />
 
-<%= render partial: 'comments/comments' %>
+<strong>Most Recent Comment</strong>
 
-<br /><br />
+<div>
+    <div class="cat_comment">
+      <%= @cat.comment.last.created_at.strftime("%B %-d, %Y") %><br /><%= @cat.comment.last.body %>
+    </div>
+</div>
 
+<%= link_to "See All Comments", cat_comments_path(@cat) %>
+<br />
 <%= link_to "Add Comment", new_cat_comment_path(@cat) %>
