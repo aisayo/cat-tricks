@@ -1,0 +1,9 @@
+<h2>All Comments for <%= @cat.name %></h2>
+
+<div>
+  <% @cat.comment.each do |comment| %>
+    <div class="cat_comment">
+      <%= comment.created_at.strftime("%B %-d, %Y") %><br /><%= comment.body %>
+    </div>
+  <% end %>
+</div>

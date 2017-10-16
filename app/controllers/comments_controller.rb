@@ -1,8 +1,11 @@
 class CommentsController < ApplicationController
 
+  def index
+    @cat = Cat.find_by(id: params[:cat_id])
+  end
+
   def new
     @comment = Comment.new(cat_id: params[:cat_id])
-    #@comment = @cat.comments.build
   end
 
   def create
@@ -14,7 +17,6 @@ class CommentsController < ApplicationController
       render :new
     end
   end
-
 
   private
     def comment_params
