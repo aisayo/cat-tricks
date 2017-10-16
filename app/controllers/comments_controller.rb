@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to cat_path(@comment.cat)
+      redirect_to cat_comments_path(@comment.cat)
     else
       flash[:notice] = "Please enter a comment"
       render :new
