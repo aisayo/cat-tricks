@@ -15,7 +15,11 @@
 
 <div>
     <div class="cat_comment">
-      <%= @cat.comment.last.created_at.strftime("%B %-d, %Y") %><br /><%= @cat.comment.last.body %>
+      <% if @cat.comment.last != nil  %>
+        <%= @cat.comment.last.created_at.strftime("%B %-d, %Y") %><br /><%= @cat.comment.last.body %>
+      <% else %>
+        No comments yet.
+      <% end %>
     </div>
 </div>
 
