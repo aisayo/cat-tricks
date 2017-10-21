@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003165709) do
+ActiveRecord::Schema.define(version: 20171021011832) do
 
   create_table "cat_tricks", force: :cascade do |t|
     t.integer "cat_id"
     t.integer "trick_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating", default: 1
   end
 
   create_table "cats", force: :cascade do |t|
