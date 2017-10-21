@@ -4,8 +4,8 @@
 
 <% if @cat.tricks.count > 0 %>
   <ul>
-    <% @cat.tricks.each do |trick| %>
-      <li><%= trick.name %></li>
+    <% @cat.cat_tricks.each_with_index do |trick, i| %>
+      <li><strong><%= Trick.find_by_id(trick.trick_id).name %></strong> (Rating: <%= trick.rating %>)</li>
     <% end %>
   </ul>
 <% else %>
