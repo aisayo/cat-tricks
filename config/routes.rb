@@ -13,8 +13,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  #resources :tricks
-  #resources :cat_tricks
+  resources :cat_tricks
 
   resources :tricks
 
