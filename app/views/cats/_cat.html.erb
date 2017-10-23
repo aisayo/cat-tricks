@@ -5,7 +5,7 @@
 <% if @cat.tricks.count > 0 %>
   <ul>
     <% @cat.cat_tricks.each_with_index do |trick, i| %>
-      <li><strong><%= Trick.find_by_id(trick.trick_id).name %></strong> (Rating: <%= trick.rating %>)</li>
+      <li><strong><%= Trick.find_by_id(trick.trick_id).name %></strong> (Rating: <%= trick.rating %>) <%= link_to "Update progress", edit_cat_trick_path(trick) %></li>
     <% end %>
   </ul>
 <% else %>
