@@ -20,6 +20,7 @@ class TricksController < ApplicationController
   end
 
   def show
+    #raise params.inspect
     @trick = Trick.find_by_id(params[:id])
   end
 

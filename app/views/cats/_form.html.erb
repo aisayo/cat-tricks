@@ -31,6 +31,7 @@
   Add a New Trick:<br>
   <%= f.fields_for :tricks, cat.tricks.build do |trick_fields| %>
     <%= trick_fields.text_field :name %>
+    <%= trick_fields.text_field :description %>
   <% end %>
 </div>
 
