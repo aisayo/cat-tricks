@@ -1,4 +1,5 @@
-You've added <%= @trick.name %> to 's repertoire.
-<br /><br />
-<%= @trick.description %>
+<h3><%= @trick.name %></h3>
+<div>
+  <%= @trick.description %>
+</div>
 <%= link_to "Back to cat's tricks", cat_tricks_path(@cat) %>

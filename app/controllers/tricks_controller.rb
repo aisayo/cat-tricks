@@ -6,7 +6,7 @@ class TricksController < ApplicationController
   end
 
   def index
-    @tricks = @cat.tricks
+    @tricks = Trick.all
   end
 
   def create
@@ -20,7 +20,6 @@ class TricksController < ApplicationController
   end
 
   def show
-    #raise params.inspect
     @trick = Trick.find_by_id(params[:id])
   end
 
