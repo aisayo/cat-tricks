@@ -2,7 +2,6 @@
   Hi, <%= current_user.email %>!
 </div>
 
-
 <% if flash[:notice] %>
   <div class="notice">
     <%= flash[:notice] %>
@@ -10,19 +9,32 @@
   </div>
 <% end %>
 
-<p>Your Cats</p>
+<br />
+
+<h5>Your Cats</h5>
 
 <div>
-  <ul>
-    <% if current_user.cats.count > 0 %>
-      <% current_user.cats.each do |cat| %>
-        <li><%= link_to cat.name, cat_path(cat) %></li>
-      <% end %>
-    <% else %>
-      You have no cats yet.
-    <% end %>
-  </ul>
+  <% if current_user.cats.count > 0 %>
+    <ul id="cat_list"></ul>
+  <% else %>
+    You have no cats yet.
+  <% end %>
 </div>
+
+
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $.ajax({
+      method: "GET",
+      url: "/cats",
+    }).done(function(cats){
+      $.each(cats, function(index, cat) {
+        $("#cat_list").append("<li>" + cat.name + "</li>")
+      })
+    })
+  })
+</script>
 
 
 <%= link_to "Add a New Cat", new_cat_path %>

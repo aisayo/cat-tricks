@@ -2,6 +2,8 @@ class CatsController < ApplicationController
   before_action :current_cat, only: [:edit, :show, :update, :destroy]
 
   def index
+    @cats = current_user.cats
+    render json: @cats
   end
 
   def new
