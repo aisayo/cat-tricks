@@ -2,12 +2,10 @@
 
 <ul>
   <% @tricks.each do |trick| %>
-    <li><%= trick.name %></li>
+    <li><%= link_to trick.name, trick_path(trick) %></li>
   <% end %>
 </ul>
 
 <hr />
-
-<%= link_to "Add a Trick", new_cat_trick_path(@cat) %>
 
 <br /><br />
