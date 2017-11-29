@@ -2,7 +2,6 @@ class CatsController < ApplicationController
   before_action :current_cat, only: [:edit, :show, :update, :destroy]
 
   def index
-    @cats = Cat.most_talented
   end
 
   def new
@@ -37,6 +36,10 @@ class CatsController < ApplicationController
   def destroy
     @cat.delete
     redirect_to root_path, notice: "#{@cat.name} was deleted"
+  end
+
+  def most_talented
+    @cats = Cat.most_talented
   end
 
   private

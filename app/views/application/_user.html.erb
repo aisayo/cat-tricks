@@ -2,7 +2,6 @@
   Hi, <%= current_user.email %>!
 </div>
 
-<br /><br />
 
 <% if flash[:notice] %>
   <div class="notice">
@@ -24,5 +23,6 @@
     <% end %>
   </ul>
 </div>
+
 
 <%= link_to "Add a New Cat", new_cat_path %>

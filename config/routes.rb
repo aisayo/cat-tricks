@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  get '/cats/most_talented', to: 'cats#index'
+  get '/cats/most_talented', to: 'cats#most_talented'
 
   resources :cats do
     resources :comments
@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :cat_tricks
 
   resources :tricks
+
+  resources :users, only: [:show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
