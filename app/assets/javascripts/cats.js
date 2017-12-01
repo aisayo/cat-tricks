@@ -30,7 +30,7 @@ function nextCat() {
       var currentIndex = cats.map(function(element) {
         return element.id;
       }).indexOf(currentCatId);
-      var nextCat = cats[currentIndex+1];
+      var nextCat = cats[currentIndex + 1];
       $(".cat-name").text(nextCat.name);
       $(".cat-color").text(nextCat.color);
       $(".trick-list").empty();
@@ -56,8 +56,6 @@ function nextCat() {
   })
 }
 
-//test
-
 // Cat show page: Previous
 function previousCat() {
   $(".js-previous").on("click", function() {
@@ -66,7 +64,7 @@ function previousCat() {
       var currentIndex = cats.map(function(element) {
         return element.id;
       }).indexOf(currentCatId);
-      var previousCat = cats[currentIndex-1];
+      var previousCat = cats[currentIndex - 1];
       $(".cat-name").text(previousCat.name);
       $(".cat-color").text(previousCat.color);
       $(".trick-list").empty();
