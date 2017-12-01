@@ -3,25 +3,21 @@
 
 <p>Color: <span class="cat-color"><%= @cat.color %></p>
 
-<% if @cat.tricks.count > 0 %>
+<div>
   <ul class="trick-list">
     <% @cat.cat_tricks.each_with_index do |trick, i| %>
       <li><strong><%= link_to Trick.find_by_id(trick.trick_id).name, trick_path(trick.trick_id) %></strong> (Rating: <%= trick.rating %>) <%= link_to "Update progress", edit_cat_trick_path(trick) %></li>
     <% end %>
   </ul>
-<% else %>
-  Your cat doesn't know anything yet!
-<% end %>
+</div>
 
 <hr />
 
-<div><strong>Comments</strong></div>
-<% if @cat.comment.count > 0 %>
+<div>
+  <strong>Comments</strong>
   <ul class="cat-comments">
     <% @cat.comment.each_with_index do |comment, i| %>
       <li><%= comment.body %></li>
     <% end %>
   </ul>
-<% else %>
-   No comments yet.
-<% end %>
+</div>
