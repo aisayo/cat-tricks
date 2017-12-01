@@ -1,10 +1,10 @@
 <a href="#" class="js-previous" data-id="<%= @cat.id %>">Previous Cat</a> &#124; <a href="#" class="js-next" data-id="<%= @cat.id %>">Next Cat</a>
 <h2 class="cat-name"><%= @cat.name %></h2>
 
-<p>Color: <span class="cat-color"><%= @cat.color %></span></p>
+<p>Color: <span class="cat-color"><%= @cat.color %></p>
 
 <% if @cat.tricks.count > 0 %>
-  <ul>
+  <ul class="trick-list">
     <% @cat.cat_tricks.each_with_index do |trick, i| %>
       <li><strong><%= link_to Trick.find_by_id(trick.trick_id).name, trick_path(trick.trick_id) %></strong> (Rating: <%= trick.rating %>) <%= link_to "Update progress", edit_cat_trick_path(trick) %></li>
     <% end %>

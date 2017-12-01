@@ -33,6 +33,14 @@ function nextCat() {
       var nextCat = cats[currentIndex+1];
       $(".cat-name").text(nextCat.name);
       $(".cat-color").text(nextCat.color);
+      $(".trick-list").empty();
+      $.each(nextCat.tricks, function(index, trick) {
+        $(".trick-list").append(
+                                "<li>" +
+                                trick.name +
+                                "</li>")
+      })
+
       $(".js-next").attr("data-id", nextCat.id);
 
       if (nextCat === cats[cats.length - 1]) {
@@ -55,6 +63,14 @@ function previousCat() {
       var previousCat = cats[currentIndex-1];
       $(".cat-name").text(previousCat.name);
       $(".cat-color").text(previousCat.color);
+      $(".trick-list").empty();
+      $.each(previousCat.tricks, function(index, trick) {
+        $(".trick-list").append(
+                                "<li>" +
+                                trick.name +
+                                "</li>")
+      })
+
       $(".js-previous").attr("data-id", previousCat.id);
 
       if (previousCat === cats[0]) {
