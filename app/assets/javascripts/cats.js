@@ -56,6 +56,8 @@ function nextCat() {
   })
 }
 
+//test
+
 // Cat show page: Previous
 function previousCat() {
   $(".js-previous").on("click", function() {
