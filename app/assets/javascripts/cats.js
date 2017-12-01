@@ -22,6 +22,28 @@ function listCats () {
 }
 
 
+// Cat show page: Load cat
+function loadCat(catData) {
+  $(".cat-name").text(catData.name);
+  $(".cat-color").text(catData.color);
+  $(".trick-list").empty();
+  $.each(catData.tricks, function(index, trick) {
+    $(".trick-list").append(
+                            "<li>" +
+                            "<a href=\"/tricks/" +
+                            trick.id +
+                            "\">" +
+                            trick.name +
+                            "</a>" +
+                            "</li>")
+  })
+
+  $(".js-next").attr("data-id", catData.id);
+  $(".js-previous").attr("data-id", catData.id);
+}
+
+
+
 // Cat show page: Next
 function nextCat() {
   $(".js-next").on("click", function() {
@@ -31,27 +53,7 @@ function nextCat() {
         return element.id;
       }).indexOf(currentCatId);
       var nextCat = cats[currentIndex + 1];
-      $(".cat-name").text(nextCat.name);
-      $(".cat-color").text(nextCat.color);
-      $(".trick-list").empty();
-      $.each(nextCat.tricks, function(index, trick) {
-        $(".trick-list").append(
-                                "<li>" +
-                                "<a href=\"/tricks/" +
-                                trick.id +
-                                "\">" +
-                                trick.name +
-                                "</a>" +
-                                "</li>")
-      })
-
-      $(".js-next").attr("data-id", nextCat.id);
-
-      if (nextCat === cats[cats.length - 1]) {
-        $(".js-previous").attr("data-id", nextCat.id);
-      } else {
-        $(".js-previous").attr("data-id", currentCatId);
-      }
+      loadCat(nextCat);
     })
   })
 }
@@ -65,27 +67,7 @@ function previousCat() {
         return element.id;
       }).indexOf(currentCatId);
       var previousCat = cats[currentIndex - 1];
-      $(".cat-name").text(previousCat.name);
-      $(".cat-color").text(previousCat.color);
-      $(".trick-list").empty();
-      $.each(previousCat.tricks, function(index, trick) {
-        $(".trick-list").append(
-                                "<li>" +
-                                "<a href=\"/tricks/" +
-                                trick.id +
-                                "\">" +
-                                trick.name +
-                                "</a>" +
-                                "</li>")
-      })
-
-      $(".js-previous").attr("data-id", previousCat.id);
-
-      if (previousCat === cats[0]) {
-        $(".js-next").attr("data-id", previousCat.id);
-      } else {
-        $(".js-next").attr("data-id", currentCatId);
-      }
+      loadCat(previousCat);
     })
   })
 }
