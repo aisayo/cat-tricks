@@ -2,6 +2,7 @@ $(document).ready(function() {
   listCats();
   nextCat();
   previousCat();
+  //loadCat();
 })
 
 
@@ -35,6 +36,14 @@ function loadCat(catData) {
                             "\">" +
                             trick.name +
                             "</a>" +
+                            "</li>")
+  })
+
+  $(".cat-comments").empty();
+  $.each(catData.comment, function(index, comment) {
+    $(".cat-comments").append(
+                            "<li>" +
+                            comment.body +
                             "</li>")
   })
 

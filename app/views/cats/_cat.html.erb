@@ -12,3 +12,16 @@
 <% else %>
   Your cat doesn't know anything yet!
 <% end %>
+
+<hr />
+
+<div><strong>Comments</strong></div>
+<% if @cat.comment.count > 0 %>
+  <ul class="cat-comments">
+    <% @cat.comment.each_with_index do |comment, i| %>
+      <li><%= comment.body %></li>
+    <% end %>
+  </ul>
+<% else %>
+   No comments yet.
+<% end %>
