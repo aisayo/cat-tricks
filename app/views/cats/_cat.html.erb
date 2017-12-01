@@ -1,6 +1,7 @@
-<h2><%= @cat.name %></h2>
+<a href="#" class="js-previous" data-id="<%= @cat.id %>">Previous Cat</a> &#124; <a href="#" class="js-next" data-id="<%= @cat.id %>">Next Cat</a>
+<h2 class="cat-name"><%= @cat.name %></h2>
 
-<p>Color: <%= @cat.color %></p>
+<p>Color: <span class="cat-color"><%= @cat.color %></span></p>
 
 <% if @cat.tricks.count > 0 %>
   <ul>
