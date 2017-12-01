@@ -11,7 +11,7 @@ function listCats () {
     $.each(cats, function(index, cat) {
       $("#cat_list").append(
                             "<li>" +
-                            "<a href=\"cats/" +
+                            "<a href=\"/cats/" +
                             cat.id +
                             "\">" +
                             cat.name +
@@ -37,7 +37,11 @@ function nextCat() {
       $.each(nextCat.tricks, function(index, trick) {
         $(".trick-list").append(
                                 "<li>" +
+                                "<a href=\"/tricks/" +
+                                trick.id +
+                                "\">" +
                                 trick.name +
+                                "</a>" +
                                 "</li>")
       })
 
@@ -67,7 +71,11 @@ function previousCat() {
       $.each(previousCat.tricks, function(index, trick) {
         $(".trick-list").append(
                                 "<li>" +
+                                "<a href=\"/tricks/" +
+                                trick.id +
+                                "\">" +
                                 trick.name +
+                                "</a>" +
                                 "</li>")
       })
 
