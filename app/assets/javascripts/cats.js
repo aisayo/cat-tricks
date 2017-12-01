@@ -5,7 +5,14 @@ $(document).ready(function() {
     url: "/cats",
   }).done(function(cats){
     $.each(cats, function(index, cat) {
-      $("#cat_list").append("<li>" + cat.name + "</li>")
+      $("#cat_list").append(
+        "<li>" +
+        "<a href=\"cats/" +
+        cat.id +
+        "\">" +
+        cat.name +
+        "</a>" +
+        "</li>")
     })
   })
 })
