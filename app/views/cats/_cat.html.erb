@@ -6,7 +6,7 @@
 <div>
   <ul class="trick-list">
     <% @cat.cat_tricks.each_with_index do |trick, i| %>
-      <li><strong><%= link_to Trick.find_by_id(trick.trick_id).name, trick_path(trick.trick_id) %></strong> (Rating: <%= trick.rating %>) <%= link_to "Update progress", edit_cat_trick_path(trick) %></li>
+      <li><%= link_to Trick.find_by_id(trick.trick_id).name, trick_path(trick.trick_id) %> (Rating: <%= trick.rating %>) <%= link_to "Update progress", edit_cat_trick_path(trick) %></li>
     <% end %>
   </ul>
 </div>
