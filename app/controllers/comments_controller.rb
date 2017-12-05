@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :set_cat
 
   def index
     @cat = Cat.find_by(id: params[:cat_id])
@@ -9,18 +10,18 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_to cat_comments_path(@comment.cat)
-    else
-      flash[:notice] = "Please enter a comment"
-      render :new
-    end
+    @comment = @cat.comment.build(comment_params)
+    @comment.save
+    render json: @comment
   end
 
   private
     def comment_params
       params.require(:comment).permit(:body, :cat_id)
+    end
+
+    def set_cat
+      @cat = Cat.find(params[:cat_id])
     end
 
 end

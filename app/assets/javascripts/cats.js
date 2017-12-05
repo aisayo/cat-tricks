@@ -47,11 +47,11 @@ function loadCat(catData) {
                             "</li>")
   })
 
+  //Updates cat_id params when URL isn't updated. There has to be a better way?
   $(".js-next").attr("data-id", catData.id);
   $(".js-previous").attr("data-id", catData.id);
+  $("#comment_cat_id").attr("value", catData.id);
 }
-
-
 
 // Cat show page: Next
 function nextCat() {
@@ -80,3 +80,25 @@ function previousCat() {
     })
   })
 }
+
+//Cat show page: Add Comment via AJAX
+$(function() {
+  $("#new_comment").on("submit", function(e) {
+    var catId = parseInt($("#comment_cat_id").attr("value"));
+    postUrl = "/cats/" + catId + "/comments";
+    $.ajax({
+      url: postUrl,
+      data: $(this).serialize(),
+      dataType: "json",
+      method: "POST",
+      success: function(response) {
+        $(".cat-comments").append(
+                                "<li>" +
+                                response.body +
+                                "</li>");
+      }
+    })
+    $("#comment_body").val("");
+    e.preventDefault();
+  })
+})

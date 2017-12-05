@@ -10,14 +10,3 @@
     <% end %>
   </ul>
 </div>
-
-<hr />
-
-<div>
-  <strong>Comments</strong>
-  <ul class="cat-comments">
-    <% @cat.comment.each_with_index do |comment, i| %>
-      <li><%= comment.body %></li>
-    <% end %>
-  </ul>
-</div>

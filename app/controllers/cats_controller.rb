@@ -30,6 +30,7 @@ class CatsController < ApplicationController
   end
 
   def show
+    @comment = @cat.comment.build
     @cat = Cat.find(params[:id])
     respond_to do |format|
       format.html { render :show }

@@ -1,6 +1,12 @@
 <%= render partial: 'cat', locals: {cat: @cat} %>
 
 <hr />
+
+<%= render partial: 'comments', locals: {cat: @cat} %>
+
+
+<hr />
+
 <p>
   <% if current_user == @cat.user %>
      <%= link_to "Edit Cat's Details", edit_cat_path(@cat) %>
@@ -8,6 +14,3 @@
      <%= link_to "Delete Cat", cat_path(@cat), method: :delete, data: {confirm: "Are you sure?"} %>
   <% end %>
 </p>
-
-
-<%= link_to "Add Comment", new_cat_comment_path(@cat) %>

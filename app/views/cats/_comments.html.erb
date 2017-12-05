@@ -1,0 +1,15 @@
+<div>
+  <strong>Comments</strong>
+  <ul class="cat-comments">
+    <% @cat.comment.each_with_index do |comment, i| %>
+      <li><%= comment.body %></li>
+    <% end %>
+  </ul>
+</div>
+
+<%= form_for([@cat, @comment]) do |f| %>
+  <%= f.hidden_field :cat_id, :value => @cat.id %>
+  <%= f.text_area :body %>
+  <br />
+  <%= submit_tag "Add Comment", data: { disable_with: false }%>
+<% end %>
