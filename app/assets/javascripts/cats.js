@@ -95,7 +95,6 @@ Comment.success = function(response){
   $("#comment_body").val("");
 }
 
-//"The Model Objects must have at least one method on the prototype"
 Comment.prototype.renderLi = function() {
   var html = "";
   html += "<li>" + this.body + "</li>";

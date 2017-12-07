@@ -6,11 +6,11 @@ Specs:
 - [x] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend. (Cat list on User home page)
 - [x] Include at least one has_many relationship in information rendered via JSON and appended to the DOM. (Cat has_many Comments; list rendered on Cat show page)
 - [x] Use your Rails API and a form to create a resource and render the response without a page refresh. (Add Comment on Cat show page)
-- [ ] Translate JSON responses into js model objects.
+- [x] Translate JSON responses into js model objects. (Comment JSON converted to Model Object)
 - [x] At least one of the js model objects must have at least one method added by your code to the prototype. (Comments rendered via prototype method `renderLi`)
 
 Confirm
-- [ ] You have a large number of small Git commits
-- [ ] Your commit messages are meaningful
-- [ ] You made the changes in a commit that relate to the commit message
-- [ ] You don't include changes in a commit that aren't related to the commit message
+- [x] You have a large number of small Git commits
+- [x] Your commit messages are meaningful
+- [x] You made the changes in a commit that relate to the commit message
+- [x] You don't include changes in a commit that aren't related to the commit message
