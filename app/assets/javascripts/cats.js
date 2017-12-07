@@ -88,12 +88,20 @@ function Comment(attributes) {
   this.body = attributes.body;
 }
 
+Comment.success = function(response){
+  var comment = new Comment(response);
+  var commentLi = comment.renderLi();
+  $(".cat-comments").append(commentLi);
+  $("#comment_body").val("");
+}
+
 //"The Model Objects must have at least one method on the prototype"
 Comment.prototype.renderLi = function() {
   var html = "";
   html += "<li>" + this.body + "</li>";
   $(".cat-comments").append(html);
 }
+
 
 //Cat show page: Add Comment via AJAX
 $(function() {
@@ -105,13 +113,8 @@ $(function() {
       data: $(this).serialize(),
       dataType: "json",
       method: "POST",
-      success: function(response) {
-        var comment = new Comment(response);
-        var commentLi = comment.renderLi();
-        $(".cat-comments").append(commentLi);
-      }
     })
-    $("#comment_body").val("");
+    .success(Comment.success);
     e.preventDefault();
   })
 })
