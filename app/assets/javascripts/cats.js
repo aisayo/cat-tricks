@@ -56,6 +56,7 @@ function loadCat(catData) {
 function nextCat() {
   $(".js-next").on("click", function() {
     var currentCatId = parseInt($(".js-next").attr("data-id"));
+    //This "prev/next neighbor" logic should be in model or controller??
     $.getJSON("/cats", function(cats){
       var currentIndex = cats.map(function(element) {
         return element.id;
@@ -70,6 +71,7 @@ function nextCat() {
 function previousCat() {
   $(".js-previous").on("click", function() {
     var currentCatId = parseInt($(".js-previous").attr("data-id"));
+    //This "prev/next neighbor" logic should be in model or controller??
     $.getJSON("/cats", function(cats){
       var currentIndex = cats.map(function(element) {
         return element.id;
