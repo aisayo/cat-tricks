@@ -40,11 +40,10 @@ function loadCat(catData) {
   })
 
   $(".cat-comments").empty();
-  $.each(catData.comment, function(index, comment) {
-    $(".cat-comments").append(
-                            "<li>" +
-                            comment.body +
-                            "</li>")
+  $.each(catData.comment, function(index, data) {
+    var comment = new Comment(data);
+    var commentLi = comment.renderLi();
+    $(".cat-comments").append(commentLi);
   })
 
   //Updates cat_id params when URL isn't updated. There has to be a better way?
@@ -84,7 +83,7 @@ function previousCat() {
 
 //Comment Model Object
 function Comment(attributes) {
-  this.body = attributes.body
+  this.body = attributes.body;
 }
 
 //"The Model Objects must have at least one method on the prototype"
