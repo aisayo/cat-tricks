@@ -92,7 +92,13 @@ Comment.success = function(response){
   var comment = new Comment(response);
   var commentLi = comment.renderLi();
   $(".cat-comments").append(commentLi);
+  $("#comment-error").empty();
   $("#comment_body").val("");
+}
+
+Comment.error = function(){
+  console.log("test")
+  $("#comment-error").text("Please enter a comment.");
 }
 
 Comment.prototype.renderLi = function() {
@@ -113,7 +119,8 @@ $(function() {
       dataType: "json",
       method: "POST",
     })
-    .success(Comment.success);
+    .success(Comment.success)
+    .error(Comment.error);
     e.preventDefault();
   })
 })

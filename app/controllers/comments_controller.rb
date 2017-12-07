@@ -11,8 +11,11 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @cat.comment.build(comment_params)
-    @comment.save
-    render json: @comment
+    if @comment.save
+      render json: @comment
+    else
+      render cat_path
+    end
   end
 
   private

@@ -7,6 +7,8 @@
   </ul>
 </div>
 
+<div id="comment-error"></div>
+
 <%= form_for([@cat, @comment]) do |f| %>
   <%= f.hidden_field :cat_id, :value => @cat.id %>
   <%= f.text_area :body %>
