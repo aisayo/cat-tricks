@@ -9,9 +9,11 @@
 
 <div id="comment-error"></div>
 
-<%= form_for([@cat, @comment]) do |f| %>
-  <%= f.hidden_field :cat_id, :value => @cat.id %>
-  <%= f.text_area :body %>
-  <br />
-  <%= submit_tag "Add Comment", data: { disable_with: false }%>
+<% if current_user == @cat.user %>
+  <%= form_for([@cat, @comment]) do |f| %>
+    <%= f.hidden_field :cat_id, :value => @cat.id %>
+    <%= f.text_area :body %>
+    <br />
+    <%= submit_tag "Add Comment", data: { disable_with: false }%>
+  <% end %>
 <% end %>
