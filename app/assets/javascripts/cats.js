@@ -82,14 +82,11 @@ function nextCat() {
 // Cat show page: Previous
 function previousCat() {
   $(".js-previous").on("click", function() {
-    var currentCatId = parseInt($(".js-previous").attr("data-id"));
-    //This "prev/next neighbor" logic should be in model or controller??
     $.getJSON("/cats", function(cats){
-      var currentIndex = cats.map(function(element) {
-        return element.id;
-      }).indexOf(currentCatId);
-      var previousCat = cats[currentIndex - 1];
-      loadCat(previousCat);
+      var currentCatId = parseInt($(".js-previous").attr("data-id"));
+      var prevId = findCatIndex(currentCatId) - 1;
+      var prevCat = cats[prevId];
+      loadCat(prevCat);
     })
   })
 }
