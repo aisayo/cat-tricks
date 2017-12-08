@@ -68,6 +68,7 @@ function findCatIndex(id) {
   return currentIndex;
 }
 
+
 // Cat show page: Next
 function nextCat() {
   $(".js-next").on("click", function() {
