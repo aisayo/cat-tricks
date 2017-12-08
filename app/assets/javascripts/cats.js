@@ -1,8 +1,10 @@
+var catIndexes;
+
 $(document).ready(function() {
   listCats();
   nextCat();
   previousCat();
-  //loadCat();
+  loadCatIndexes();
 })
 
 
@@ -46,26 +48,36 @@ function loadCat(catData) {
     $(".cat-comments").append(commentLi);
   })
 
-  //Updates cat_id params when URL isn't updated. There has to be a better way?
+  //Updates cat_id params when URL isn't updated.
   $(".js-next").attr("data-id", catData.id);
   $(".js-previous").attr("data-id", catData.id);
   $("#comment_cat_id").attr("value", catData.id);
 }
 
+
+function loadCatIndexes() {
+  $.getJSON("/cat_indexes", function(cats){
+    catIndexes = cats;
+  })
+}
+
+function findCatIndex(id) {
+  var currentIndex = catIndexes.indexOf(id);
+  return currentIndex;
+}
+
 // Cat show page: Next
 function nextCat() {
   $(".js-next").on("click", function() {
-    var currentCatId = parseInt($(".js-next").attr("data-id"));
-    //This "prev/next neighbor" logic should be in model or controller??
     $.getJSON("/cats", function(cats){
-      var currentIndex = cats.map(function(element) {
-        return element.id;
-      }).indexOf(currentCatId);
-      var nextCat = cats[currentIndex + 1];
+      var currentCatId = parseInt($(".js-next").attr("data-id"));
+      var nextId = findCatIndex(currentCatId) + 1;
+      var nextCat = cats[nextId];
       loadCat(nextCat);
     })
   })
 }
+
 
 // Cat show page: Previous
 function previousCat() {
@@ -104,7 +116,7 @@ Comment.error = function(){
 Comment.prototype.renderLi = function() {
   var html = "";
   html += "<li>" + this.body + "</li>";
-  $(".cat-comments").append(html);
+  return html;
 }
 
 

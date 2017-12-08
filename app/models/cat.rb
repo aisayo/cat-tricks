@@ -17,4 +17,8 @@ class Cat < ApplicationRecord
     joins(:cat_tricks).group(:cat_id).order("count(*) DESC")
   end
 
+  def self.indexes(user)
+    user.cats.map{ |cat| cat.id }
+  end
+
 end

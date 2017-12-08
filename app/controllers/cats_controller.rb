@@ -6,6 +6,11 @@ class CatsController < ApplicationController
     render json: @cats
   end
 
+  def indexes
+    indexes = Cat.indexes(current_user)
+    render json: indexes
+  end
+
   def new
     @cat = Cat.new
   end
