@@ -55,6 +55,8 @@ function loadCat(catData) {
 }
 
 
+
+// User's cat index to determine prev/next
 function loadCatIndexes() {
   $.getJSON("/cat_indexes", function(cats){
     catIndexes = cats;
