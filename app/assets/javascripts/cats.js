@@ -109,7 +109,6 @@ Comment.success = function(response){
 }
 
 Comment.error = function(){
-  console.log("test")
   $("#comment-error").text("Please enter a comment.");
 }
 
