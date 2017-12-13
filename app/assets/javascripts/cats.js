@@ -1,4 +1,4 @@
-var catIndexes;
+let catIndexes;
 
 $(document).ready(function() {
   listCats();
@@ -43,8 +43,8 @@ function loadCat(catData) {
 
   $(".cat-comments").empty();
   $.each(catData.comment, function(index, data) {
-    var comment = new Comment(data);
-    var commentLi = comment.renderLi();
+    let comment = new Comment(data);
+    let commentLi = comment.renderLi();
     $(".cat-comments").append(commentLi);
   })
 
@@ -64,7 +64,7 @@ function loadCatIndexes() {
 }
 
 function findCatIndex(id) {
-  var currentIndex = catIndexes.indexOf(id);
+  let currentIndex = catIndexes.indexOf(id);
   return currentIndex;
 }
 
@@ -73,9 +73,9 @@ function findCatIndex(id) {
 function nextCat() {
   $(".js-next").on("click", function() {
     $.getJSON("/cats", function(cats){
-      var currentCatId = parseInt($(".js-next").attr("data-id"));
-      var nextId = findCatIndex(currentCatId) + 1;
-      var nextCat = cats[nextId];
+      let currentCatId = parseInt($(".js-next").attr("data-id"));
+      let nextId = findCatIndex(currentCatId) + 1;
+      let nextCat = cats[nextId];
       loadCat(nextCat);
     })
   })
@@ -86,9 +86,9 @@ function nextCat() {
 function previousCat() {
   $(".js-previous").on("click", function() {
     $.getJSON("/cats", function(cats){
-      var currentCatId = parseInt($(".js-previous").attr("data-id"));
-      var prevId = findCatIndex(currentCatId) - 1;
-      var prevCat = cats[prevId];
+      let currentCatId = parseInt($(".js-previous").attr("data-id"));
+      let prevId = findCatIndex(currentCatId) - 1;
+      let prevCat = cats[prevId];
       loadCat(prevCat);
     })
   })
@@ -101,8 +101,8 @@ function Comment(attributes) {
 }
 
 Comment.success = function(response){
-  var comment = new Comment(response);
-  var commentLi = comment.renderLi();
+  let comment = new Comment(response);
+  let commentLi = comment.renderLi();
   $(".cat-comments").append(commentLi);
   $("#comment-error").empty();
   $("#comment_body").val("");
@@ -114,7 +114,7 @@ Comment.error = function(){
 }
 
 Comment.prototype.renderLi = function() {
-  var html = "";
+  let html = "";
   html += "<li>" + this.body + "</li>";
   return html;
 }
@@ -123,7 +123,7 @@ Comment.prototype.renderLi = function() {
 //Cat show page: Add Comment via AJAX
 $(function() {
   $("#new_comment").on("submit", function(e) {
-    var catId = parseInt($("#comment_cat_id").attr("value"));
+    let catId = parseInt($("#comment_cat_id").attr("value"));
     postUrl = "/cats/" + catId + "/comments";
     $.ajax({
       url: postUrl,
